@@ -1,26 +1,36 @@
-var express = require('express'); // Do Not Edit
-var app = express();              // Do Not Edit
+const express = require('express');
+const helmet = require('helmet');
+const app = express();
+const bcrypt = require('bcrypt');
 
-/** 1) Install and require `helmet` */
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", 'trusted-cdn.com'],
+    }
+  },
+  noCache: true
+}))
 
-var helmet = require('helmet');
 
-// [Helmet](https://github.com/helmetjs/helmet) helps you secure your
-// Express apps by setting various HTTP headers.
-// Install the package, then require it.
 
-var ninetyDaysInMilliseconds = 90*24*60*60*1000;
 
-// ---- DO NOT EDIT BELOW THIS LINE ---------------------------------------
+
+
+
+
+
 
 module.exports = app;
-var api = require('./server.js');
+const.api = require('./server.js');
 app.use(express.static('public'));
 app.disable('strict-transport-security');
 app.use('/_api', api);
 app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+  response.sendFile(__dirname + 'views/index.html');
 });
-var listener = app.listen(process.env.PORT || 3000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+let port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`🍀 Useful Programmer Info Security App Started on Port ${PORT}`)
 });
