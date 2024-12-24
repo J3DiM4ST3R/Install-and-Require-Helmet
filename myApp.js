@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const app = express();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 app.use(helmet({
   contentSecurityPolicy: {

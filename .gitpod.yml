@@ -3,6 +3,7 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+image: gitpod/workspace-node-lts
 
 tasks:
   - init: npm install
@@ -10,6 +11,7 @@ tasks:
 
 ports:
   - port: 3000
+    onOpen: open-preview
     visibility: public
 
 
