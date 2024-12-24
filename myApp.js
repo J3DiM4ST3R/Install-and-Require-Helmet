@@ -23,7 +23,7 @@ app.use(helmet({
 
 
 module.exports = app;
-const.api = require('./server.js');
+const api = require('./server.js');
 app.use(express.static('public'));
 app.disable('strict-transport-security');
 app.use('/_api', api);
