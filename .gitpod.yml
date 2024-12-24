@@ -5,13 +5,13 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 image: gitpod/workspace-node-lts
 
-tasks:
-  - init: npm install
-    command: npm run start
-
 ports:
   - port: 3000
     onOpen: open-preview
     visibility: public
+
+tasks:
+  - init: npm install
+    command: npm run start
 
 
